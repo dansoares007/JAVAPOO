@@ -12,13 +12,16 @@ public class Main {
         //upcasting
 
         Account acc1 = bacc;
-        Account acc2 = new BussinesAccount(1003, "Bob", 0.0, 200.0);
-        Account acc3 = new SavingsAccount(1004, "Anna", 0.0, 0.01);
+        Account acc2 = new BussinesAccount(1003, "Bob", 100.0, 200.0);
+        Account acc3 = new SavingsAccount(1004, "Anna", 100.0, 0.01);
+
+        System.out.println("Saldo Busisness: " + acc2.getBalance());
+        System.out.println("Saldo Savings: " + acc3.getBalance());
 
         //downcasting
 
-        BussinesAccount acc4 = (BussinesAccount)acc2;
-        acc4.loan(100.0);
+//        BussinesAccount acc4 = (BussinesAccount)acc2;
+//        acc4.loan(100.0);
 
         // BussinesAccount acc5 = (BussinesAccount)acc3;
         // O instanceof garante que o Java só vai tentar o downcasting se o acc3 for REALMENTE uma conta empresarial
@@ -28,12 +31,18 @@ public class Main {
             System.out.println("Loan!");
         }
 
-        if (acc3 instanceof SavingsAccount) {
-            SavingsAccount acc5 = (SavingsAccount) acc3;
-            acc5.updateBalance();
-            System.out.println("Update!");
-        }
+//        if (acc3 instanceof SavingsAccount) {
+//            SavingsAccount acc5 = (SavingsAccount) acc3;
+//            acc5.updateBalance();
+//            System.out.println("Update!");
+//        }
 
 
+
+        acc3.withdraw(10.0);
+        acc2.withdraw(10.0);
+
+        System.out.println("Saldo Busisness: " + acc2.getBalance());
+        System.out.println("Saldo Savings: " + acc3.getBalance());
     }
 }
